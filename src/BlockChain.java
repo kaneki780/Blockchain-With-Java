@@ -147,29 +147,3 @@ public class BlockChain {
         blockchain.add(newBlock);
     }
 }
-
-/*
- * public static void main(String[] args) {
-		//add our blocks to the blockchain ArrayList:
-		Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider()); //Setup Bouncey castle as a Security Provider
-
-		//walletA = new Wallet();
-		//walletB = new Wallet();
-
-		//System.out.println("Private and public keys:");
-		//System.out.println(StringUtil.getStringFromKey(walletA.privateKey));
-		//System.out.println(StringUtil.getStringFromKey(walletA.publicKey));
-
-		createGenesis();
-
-		//Transaction transaction = new Transaction(walletA.publicKey, walletB.publicKey, 5);
-		//transaction.signature = transaction.generateSignature(walletA.privateKey);
-
-		//System.out.println("Is signature verified:");
-		//System.out.println(transaction.verifiySignature());
-
-	}
- */
-
-//System.out.println("Trying to Mine block 1... ");
-//addBlock(new Block("Hi im the first block", "0"));
