@@ -19,3 +19,99 @@ A hash function is a mathematical algorithm that takes an input (or 'message') a
 ![Screenshot 2024-04-14 232516](https://github.com/kaneki780/Blockchain-With-Java/assets/111025359/c9c7004e-c774-41f6-85bd-af1c851cec84)
 
 
+### Functioning of `mineBlock()` Method
+
+The `mineBlock()` method in the `Block` class is responsible for mining a new block by finding a suitable nonce value that satisfies the proof-of-work consensus algorithm. The **mineBlock()** method takes in an int called difficulty, this is the number of 0’s they must solve for. Low difficulty like 1 or 2 can be solved nearly instantly on most computers. Here's how it works:
+
+1. Calculate the Merkle root: The Merkle root is a cryptographic hash of all transactions included in the block. It ensures that the block's transactions are valid and unaltered.
+    
+2. Set the target hash: Determine the target hash by generating a string with a specified difficulty level (number of leading zeros).
+    
+3. Mine the block: Iterate through nonce values and calculate the block's hash until a hash is found that meets the target difficulty level. This process requires computational work (mining), hence the term "proof of work."
+    
+4. Update the block: Once a suitable hash is found, update the block's hash and nonce.
+    
+5. Print success: Print a message indicating that the block has been successfully mined.
+![Pasted image 20240414232612](https://github.com/kaneki780/Blockchain-With-Java/assets/111025359/6b67430f-d9dc-479a-a85e-02ea854caa62)
+
+### Functioning of `isChainValid()` Method
+
+The `isChainValid()` Boolean method in the `Blockchain` class validates the integrity of the blockchain by checking each block's hash and the previous block's hash. Here's how it works:
+
+1. Loop through all blocks: Iterate through each block in the blockchain.
+    
+2. Check block hashes: For each block, compare the registered hash with the calculated hash. Ensure that the hash variable is equal to the calculated hash.
+    
+3. Check previous block's hash: Also, verify that the previous block's hash matches the previousHash variable of the current block.
+    
+4. Check proof of work: Verify that each block's hash meets the target difficulty level set by the proof-of-work algorithm.
+    
+5. Verify transactions: Validate each block's transactions to ensure they are correctly signed and the inputs and outputs balance.
+    
+6. Ensure blockchain integrity: If all checks pass, the blockchain is deemed valid.
+    
+
+
+### Wallet
+
+In crypto-currencies, coin ownership is transfered on the Blockchain as transactions, participants have an address which funds can be sent to and from. **In their basic form wallets can just store these addresses, most wallets however, are also software able to make new transactions on the Blockchain.**
+![Pasted image 20240414231629](https://github.com/kaneki780/Blockchain-With-Java/assets/111025359/818112e9-e6c1-4198-bba2-4b2dd90351d1)
+
+Cryptographic Concepts
+
+#### SHA-256 (Secure Hash Algorithm 256-bit)
+
+SHA-256 is a cryptographic hash function used to generate unique fixed-size hash values from input data. In this project, SHA-256 is applied to various data, including block contents, transaction details, and public keys.
+
+#### ECDSA (Elliptic Curve Digital Signature Algorithm)
+
+ECDSA is a cryptographic algorithm used for digital signatures, providing a way to verify the authenticity and integrity of messages. In this project, ECDSA is used to generate and verify digital signatures for transactions, ensuring that transactions are secure and tamper-proof.
+
+#### Key Pair Generation
+
+Key pair generation involves generating a public-private key pair using cryptographic algorithms. In this project, ECDSA is used to generate key pairs for wallet addresses. The public key is used to receive funds, while the private key is used to sign transactions and prove ownership of funds.
+
+**_What are the public and private keys for ?_**
+
+For our **_‘blockchain’_** the _public key_ will act as our address. It’s OK to share this public key with others to receive payment. Our private key is used to **_sign_** our transactions, so that nobody can spend our blockcoins other than the owner of the private key. **Users will have to keep their private key Secret !** We also send our public key along with the transaction and it can be used to verify that our signature is valid and data has not been tampered with.
+
+# Transactions & Signatures
+
+Each transaction will carry a certain amount of data:
+
+- The public key(address) of the sender of funds.
+- The public key(address) of the receiver of funds.
+- The value/amount of funds to be transferred.
+- Inputs, which are references to previous transactions that prove the sender has funds to send.
+- Outputs, which shows the amount relevant addresses received in the transaction. ( These outputs are referenced as inputs in new transactions )
+- A cryptographic signature, that proves the owner of the address is the one sending this transaction and that the data hasn’t been changed. ( for example: preventing a third party from changing the amount sent )
+
+## What is the purpose of signatures and how do they work ?
+
+**_Signatures_** perform **two** very important tasks on our blockchain: Firstly, they **allow only the owner** to spend **their coins**, secondly, they prevent others from **tampering with their submitted transaction** before a new block is mined (at the point of entry).
+
+We created two wallets, _walletA_ and _walletB_ then printed _walletA_’s private and public keys. Generated a _Transaction_ and signed it using _walletA_’s private key.
+
+# Inputs & Outputs 1: How crypto currency is owned…
+
+For you to own 1 bitcoin, you have to receive 1 Bitcoin. The ledger doesn’t really add one bitcoin to you and minus one bitcoin from the sender, the sender referenced that he/she previously received one bitcoin, then a transaction output was created showing that 1 Bitcoin was sent to your address. (Transaction inputs are references to previous transaction outputs.).
+
+![Pasted image 20240414232037](https://github.com/kaneki780/Blockchain-With-Java/assets/111025359/1a323f4c-9306-4aee-b38c-bb3eaf5f9a70)
+
+### Java Security Classes
+
+Java provides various security classes and libraries for implementing cryptographic algorithms and ensuring secure communication. In this project, the following Java security classes are used:
+
+- `MessageDigest`: Used for applying cryptographic hash functions like SHA-256.
+- `KeyPairGenerator`: Used for generating public-private key pairs for ECDSA.
+- `Signature`: Used for creating and verifying digital signatures using ECDSA.
+- `SecureRandom`: Used for generating secure random numbers, essential for cryptographic operations.
+
+
+# Working
+![Screenshot 2024-04-14 232344](https://github.com/kaneki780/Blockchain-With-Java/assets/111025359/66831865-b7c1-4ca2-afdd-1a60cc059a9f)
+
+### Conclusion
+
+Thank you for exploring the Blockchain in Java project! If you have any questions or feedback, please don't hesitate to reach out to me. Happy coding!
+
