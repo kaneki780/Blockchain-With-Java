@@ -2,7 +2,7 @@
 
 Welcome to the Blockchain in Java project! This project aims to provide a simple implementation of a blockchain and cryptocurrency system using Java. This README file will guide you through the project structure, its components, and the cryptographic concepts involved.
 
-### What is a Blockchain?
+### What is a Blockchain? 
 
 A blockchain is just a chain/list of blocks. Each block in the blockchain will have its own digital fingerprint, contain digital fingerprint of the previous block, and have some data ( this data could be transactions for example ).
 
