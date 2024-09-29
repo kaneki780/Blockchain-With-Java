@@ -137,7 +137,10 @@ GsonBuilder: The GsonBuilder is utilized in the StringUtility class to provide a
 By integrating BouncyCastleProvider and GsonBuilder into the project, the Blockchain in Java project benefits from enhanced cryptographic capabilities and streamlined JSON processing, contributing to its functionality, security, and ease of use.
 
 # Working
-![Screenshot 2024-04-15 052731](https://github.com/kaneki780/Blockchain-With-Java/assets/111025359/c62401bd-6f07-4cbd-9086-fe3852f7bbf0)
+![Screenshot 2024-09-29 154359](https://github.com/user-attachments/assets/63283405-1213-4587-86b7-1c3f2c8660a5)
+
+![Screenshot 2024-09-29 154409](https://github.com/user-attachments/assets/334e8788-2eb3-4ff0-b40e-348da4f7581c)
+
 
 
 ### Conclusion
